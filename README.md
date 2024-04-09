@@ -4,9 +4,16 @@ O desafio consiste na criação de um site de e-commerce simplificado do zero, o
 
 ## Telas
 
-- Home: Onde ele terá que fazer uma requisição na API, trazendo assim, a lista de filmes quem podem ser adicionados ao carrinho.
+- Home: Onde ele terá que fazer uma requisição na API, trazendo assim, a lista de filmes quem podem ser adicionados ao carrinho, onde também podem ser filtrados.
 - Carrinho: Onde ele poderá ver os itens que foram adicionados, somando o valor total com base em cada item adicionado, podendo remover um item do carrinho. Por padrão, se o carrinho tiver nenhum item adicionado, deverá aparecer a tela de empty com a opção de voltar para tela inicial.
 - Compra realizada: Após confirmar o pedido na tela anterior, o usuário deverá ser encaminhado para a tela de pedido confirmado. Aqui o usuário também terá a opção de voltar para tela inicial.
+- Empty: Tela de carrinho vazio, com a opção de voltar para tela inicial.
+
+link Figma: [https://www.figma.com/file/RY494yKewR5EpAWUWBhlUp/Re-teste-Front-React-WeFit---2024?type=design&node-id=0%3A1&mode=design&t=8BphTewiGkv0GnQk-1]
+
+## API
+
+Simulando uma API, foi utilizado o JSON Server, onde foi criado um arquivo db.json com os dados dos filmes informado.
 
 ## Tech
 
@@ -27,12 +34,7 @@ O desafio consiste na criação de um site de e-commerce simplificado do zero, o
     npm start
 ```
 
-## O que eu poderia melhorar
+## License
 
-1. Ter feito o uso de useContext nos dados recebidos para maior envovilmento na aplicação e assim poderia setar.
-2. Utilização do ThemeProvider, para centralizar as cores padrões.
-3. Por esquecimento, não consegui fazer o histórico de commits ideal para análise.
-
-## Desafios encontrados
-
-> Algumas libs nunca havia usado e esse teste serviu como exercicio e fazia tempo que não lidava com desenvolvimento para telas web e mobile.
+MIT
+**Free Software, Hell Yeah!**

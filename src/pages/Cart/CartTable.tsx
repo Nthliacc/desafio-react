@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { MovieContext } from "../../store/MovieContext";
 import { Container } from "./styled";
-import { CartTableHeader } from "./CartTableHeader";
-import { CartTableLine } from "./CartTableLine";
-import { CartTableBottom } from "./CartTableBottom";
+import CartTableHeader from "./CartTableHeader";
+import CartTableLine from "./CartTableLine";
+import CartTableBottom from "./CartTableBottom";
 
-export const CartTable: React.FC = () => {
+const CartTable: React.FC = () => {
   const { moviesCart, removeAllFromCart } = useContext(MovieContext);
   const totalQuantity = moviesCart.reduce(
     (acc, item) => acc + item.quantity * item.movie.price,
@@ -27,3 +27,5 @@ export const CartTable: React.FC = () => {
     </Container>
   );
 };
+
+export default CartTable;

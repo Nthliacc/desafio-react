@@ -18,12 +18,16 @@ const ButtonStyle = styled.button`
   height: 40px;
   margin-top: 32px;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 19px;
+  font-size: 12px;
+  line-height: 16.34px;
   text-align: center;
   background: #009edd;
   border-radius: 4px;
   border: none;
   color: #ffffff;
   cursor: pointer;
+  padding: 8px;
+  &:hover {
+    background: #0077b6;
+  }
 `;

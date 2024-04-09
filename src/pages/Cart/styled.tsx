@@ -1,19 +1,42 @@
 import styled from "styled-components";
+import lessIcon from "../../assets/less.svg";
+import moreIcon from "../../assets/more.svg";
+import trash from "../../assets/trash.svg";
 
 export const Container = styled.div`
   width: 100%;
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 24px;
+
   @media (max-width: 767px) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 88vh;
     padding: 16px;
+    gap: 21px;
   }
 `;
 
+// Cabeçalho da tabela
 export const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas: "product quatity subtotal whiteSpace";
+  grid-template-columns: 280px repeat(2, 348px) 1fr;
+  width: 100%;
+
+  .product {
+    grid-area: product;
+  }
+  .quatity {
+    grid-area: quatity;
+  }
+  .subtotal {
+    grid-area: subtotal;
+  }
+  .whiteSpace {
+    grid-area: whiteSpace;
+  }
   @media (max-width: 767px) {
     display: none;
   }
@@ -34,155 +57,200 @@ export const HeaderItem = styled.p`
   }
 `;
 
+// Linha da tabela
 export const Line = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas: "image grid";
+  grid-template-columns: 280px 4fr;
+
   margin-top: 21px;
-  div:last-child {
-    text-align: right;
+  position: relative;
+  height: 114px;
+
+  .image {
+    grid-area: image;
+    position: absolute;
   }
-  div:first-child {
-    justify-content: flex-start;
+  .grid {
+    grid-area: grid;
+    .infos {
+      position: absolute;
+      left: 10%;
+    }
   }
   @media (max-width: 767px) {
+    position: none;
+    display: flex;
     margin-top: 0;
     margin-bottom: 12px;
-    display: grid;
-    grid-template-areas: "image info info trash" "image quantity currency currency";
-    grid-template-columns: repeat(4, 1fr);
+    height: 92px;
+    gap: 16px;
     .image {
-      grid-area: image;
-      img {
-        margin-right: 16px;
-        width: 82px;
-      }
+      position: none;
     }
-    .info {
-      grid-area: info;
-      align-items: flex-start;
-      color: #2f2e41;
-      padding: 4px 0;
-      width: 100%;
-      div {
-        p:first-child {
-          width: 100px;
-          font-size: 14px;
-        }
+    .grid {
+      .infos {
+        position: static;
+        left: none;
         display: flex;
-        flex-direction: row;
       }
     }
-    .trash {
-      grid-area: trash;
-      align-items: flex-start;
-      width: 100%;
+  }
+`;
+
+export const Grid = styled.div`
+  display: grid;
+  grid-template-areas: "quantity subtotal trash";
+  grid-template-columns: repeat(2, 348px) 1fr;
+
+  align-items: center;
+  width: 100%;
+
+  .infos {
+    grid-area: info;
+  }
+  .quantity {
+    grid-area: quantity;
+  }
+  .subtotalValue {
+    grid-area: subtotal;
+  }
+  .trash {
+    grid-area: trash;
+    justify-self: end;
+  }
+  .whiteSpace {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    display: grid;
+    align-items: center;
+    justify-content: start;
+    grid-template-areas:
+      "image info info trash"
+      "image quantity subtotalValue whiteSpace";
+    grid-template-columns: 74px 120px 96px 34px;
+    .infos {
+      position: none;
+      grid-area: info;
+      align-items: center;
+      justify-content: flex-start;
+      .title {
+        height: 38px;
+      }
+      .price {
+      }
     }
     .quantity {
       grid-area: quantity;
-      input {
-        width: 59px;
-        height: 26px;
-      }
     }
     .subtotalValue {
-      grid-area: currency;
-      min-width: 100%;
-      justify-self: flex-end;
-      justify-content: normal !important;
+      grid-area: subtotalValue;
+      justify-self: center;
+    }
+    .trash {
+      grid-area: trash;
+      justify-self: end;
+    }
+    .whiteSpace {
+      grid-area: whiteSpace;
     }
   }
 `;
 
-export const LineItem = styled.div`
-  display: flex;
-  align-items: center;
-  text-align: center;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #666666;
-  width: 25%;
-  :first-child {
-    width: 20%;
-  }
-  :nth-child(4) {
-    width: 20%;
-    justify-content: end;
-  }
-  :last-child {
-    justify-content: end;
-  }
-
-  p:first-child {
-    margin-bottom: 5px;
-    font-size: 14px;
-    line-height: 19px;
-  }
-  p {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 22px;
-  }
-  .sub {
-    display: none;
-  }
-  .currency {
-    text-align: start;
-    padding: 0 8px;
-    min-width: 100px;
+export const Image = styled.div`
+  img {
+    height: 114px;
   }
   @media (max-width: 767px) {
-    .sub {
-      display: inline;
-      font-size: 12px;
-      line-height: 16px;
-      color: #999999;
-    }
-    .currency {
-      text-align: right;
-      padding: 0;
-    }
-    :nth-child(4) {
-      flex-direction: column;
-      align-items: self-end;
-      align-self: center;
-      p {
-        text-align: right;
-      }
+    img {
+      width: 64px;
+      height: 82px;
     }
   }
-`;
-
-export const Image = styled.img`
-  height: 114px;
-  margin-right: 21px;
 `;
 export const Infos = styled.div`
-  p {
-    text-align: left;
-  }
-`;
-export const Quantity = styled.div`
   display: flex;
-  width: 25%;
-
-  div {
+  flex-direction: column;
+  height: 49px;
+  gap: 8px;
+  @media (max-width: 767px) {
     display: flex;
+    flex-direction: row;
+
+    color: #2f2e41;
+    height: 38px;
     align-items: center;
     justify-content: center;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
+`;
 
-  img {
-    width: 20px;
-    height: 20px;
+export const Title = styled.div`
+  display: flex;
+  color: #2f2e41;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 19.07px;
+  @media (max-width: 767px) {
+    display: flex;
+    align-items: center;
+    width: 102px;
+  }
+`;
+
+export const Price = styled.div`
+  display: flex;
+  color: #2f2e41;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21.79px;
+  @media (max-width: 767px) {
+    width: 66px;
+    justify-content: flex-start;
+  }
+`;
+
+export const Quantity = styled.div`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+  button {
+    background: none;
+    border: none;
     cursor: pointer;
-    margin: 0 10px;
+  }
+  img {
+    width: 18px;
+    height: 18px;
+  }
+  .subtract {
+    content: url(${lessIcon});
+  }
+  .add {
+    content: url(${moreIcon});
+  }
+  @media (max-width: 767px) {
+    width: 117px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    button {
+      margin: 0;
+      padding: 0;
+    }
   }
 `;
 
 export const Input = styled.input`
-  width: 62px;
+  width: 59px;
   height: 26px;
 
   background: #ffffff;
@@ -191,15 +259,57 @@ export const Input = styled.input`
   text-align: center;
   font-weight: 400;
   font-size: 14px;
-  line-height: 19px;
-  color: #666666;
-  padding: 0 16px;
+  line-height: 19.09px;
+  color: #2f2e41;
+  padding: 16px, 12px, 16px, 12px;
+  :focus {
+    outline: none;
+  }
 `;
 
-export const ImageDelete = styled.img`
-  width: 20px;
-  height: 20px;
+export const SubTotal = styled.div`
+  display: flex;
+  justify-content: start;
+  gap: 8px;
+  .sub {
+    display: none;
+    color: #999999;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16.34px;
+  }
+  .currency {
+    color: #2f2e41;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21.79px;
+  }
+  @media (max-width: 767px) {
+    width: 66px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    .sub {
+      display: block;
+    }
+  }
+`;
+export const ImageDelete = styled.button`
+  background: none;
   cursor: pointer;
+  border: none;
+  text-align: end;
+  .trashIcon {
+    content: url(${trash});
+    width: 16px;
+    height: 18px;
+  }
+  @media (max-width: 767px) {
+    width: 66%;
+    padding: 2px 0;
+    height: 50%;
+  }
 `;
 
 export const Bottom = styled.div`
@@ -208,6 +318,7 @@ export const Bottom = styled.div`
   align-items: flex-end;
   margin-top: 21px;
   border-top: 1px solid #999999;
+
   @media (max-width: 767px) {
     padding-top: 16px;
     flex-direction: column-reverse;
@@ -224,12 +335,13 @@ export const Bottom = styled.div`
 
 export const TotalPrice = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
-
+  padding: 8px 0;
   .text-gray {
-    font-weight: 400;
+    font-weight: 700;
     font-size: 14px;
-    line-height: 19px;
+    line-height: 19.07px;
     color: #999999;
   }
 
@@ -241,13 +353,9 @@ export const TotalPrice = styled.div`
     padding-left: 12px;
   }
   @media (max-width: 767px) {
-    .text-gray {
-      padding: 0 8px;
-      font-weight: 700;
-    }
-    .price {
-      padding: 0 16px;
-    }
+    width: 100%;
+    justify-content: space-between;
+    height: 33px;
   }
 `;
 
@@ -256,14 +364,13 @@ export const CartContainer = styled.div<{ sizeH: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 24px;
-  gap: 21px;
+  padding: 0 16px;
+  gap: 24px;
   width: 100%;
-  background: #ffffff;
+  height: 596px;
   border-radius: 4px;
+
   @media (max-width: 767px) {
-    padding: 0%;
-    width: 96%;
     min-height: ${({ sizeH }) => (sizeH ? "90vh" : "auto")};
   }
 `;

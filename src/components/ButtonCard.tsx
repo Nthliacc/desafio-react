@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import addCart from "../assets/addCart.png";
+import addCart from "../assets/addCart.svg";
 
 type ButtonProps = {
   value: number;
@@ -9,7 +9,7 @@ type ButtonProps = {
 export function ButtonCard({ value, onClick }: ButtonProps) {
   return (
     <Button onClick={onClick} value={value}>
-      <img src={addCart} alt="adicionar no carrinho" />
+      <img className="cartIcon" alt="adicionar no carrinho" />
       <span>{value}</span>
       <Text>{value > 0 ? "ITEM ADICIONADO" : "ADICIONAR AO CARRINHO"}</Text>
     </Button>
@@ -32,6 +32,12 @@ const Button = styled.button<{value: number}>`
   color: #ffffff;
   font-size: 12px;
   cursor: pointer;
+  .cartIcon {
+    content: url(${addCart});
+  }
+  :hover {
+    background: ${props => props.value > 0 ? '#039B00' : '#0073A1 '};
+  }
 `;
 const Text = styled.p`
   margin-left: 12px;

@@ -8,7 +8,7 @@ interface IProps {
   removeAllFromCart: () => any;
 }
 
-export const CartTableBottom: React.FC<IProps> = ({
+const CartTableBottom: React.FC<IProps> = ({
   totalQuantity,
   removeAllFromCart,
 }) => {
@@ -26,3 +26,5 @@ export const CartTableBottom: React.FC<IProps> = ({
     </Bottom>
   );
 };
+
+export default CartTableBottom;

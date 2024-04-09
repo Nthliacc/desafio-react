@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
-import { EmptyMessage } from "../../components/EmptyMessage";
 import { MovieContext } from "../../store/MovieContext";
-import { CartTable } from "./CartTable";
-import empty from "../../assets/empty.png";
 import { CartContainer } from "./styled";
+const EmptyMessage = React.lazy(() => import("../../components/EmptyMessage"));
+const CartTable = React.lazy(() => import("./CartTable"));
 
 const Cart: React.FC = () => {
   const { moviesCart } = useContext(MovieContext);
@@ -13,10 +12,7 @@ const Cart: React.FC = () => {
       {moviesCart.length > 0 ? (
         <CartTable />
       ) : (
-        <EmptyMessage
-          message="Parece que não há nada por aqui :("
-          image={empty}
-        />
+        <EmptyMessage />
       )}
     </CartContainer>
   );

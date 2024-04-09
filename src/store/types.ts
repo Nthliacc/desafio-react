@@ -13,13 +13,16 @@ export interface MovieCartItem {
 export interface MovieContextState {
   movies: Movie[];
   moviesCart: MovieCartItem[];
+  filter: Movie[];
+  isFiltered: boolean;
+  loading: boolean;
 }
 
 export interface MovieContextProps {
   movies: Movie[];
-  setMovies: React.Dispatch<React.SetStateAction<{movie: Movie[]}>>;
   moviesCart: MovieCartItem[];
-  setMoviesCart: React.Dispatch<React.SetStateAction<MovieCartItem[]>>;
+  loading: boolean;
+  filterMovies: (filter: string) => void;
   addToCart: (movie: Movie) => void;
   removeFromCart: (movie: Movie) => void;
   removeAllFromCart: () => void;

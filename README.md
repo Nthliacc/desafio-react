@@ -14,9 +14,9 @@ O desafio consiste na criação de um site de e-commerce simplificado do zero, o
 - [React-router-dom] - criação de rotas.
 - [axios] - integração com a API.
 - [styled-components] - estilização componentizada.
-- [styled-reset] - resetar estilização dos browsers. 
+- [styled-reset] - resetar estilização dos browsers.
 - [vite] - alternativa mais rápida e eficiente para instalação do React.
-- [concurrently] - para executar o JSON Server e o Vite junto. 
+- [concurrently] - para executar o JSON Server e o Vite junto.
 
 ## Installation
 
@@ -29,11 +29,10 @@ O desafio consiste na criação de um site de e-commerce simplificado do zero, o
 
 ## O que eu poderia melhorar
 
-1. Ter feito o uso de useContext nos dados recebidos para maior envovilmento na aplicação e assim poderia setar. 
+1. Ter feito o uso de useContext nos dados recebidos para maior envovilmento na aplicação e assim poderia setar.
 2. Utilização do ThemeProvider, para centralizar as cores padrões.
 3. Por esquecimento, não consegui fazer o histórico de commits ideal para análise.
 
 ## Desafios encontrados
-
 
 > Algumas libs nunca havia usado e esse teste serviu como exercicio e fazia tempo que não lidava com desenvolvimento para telas web e mobile.

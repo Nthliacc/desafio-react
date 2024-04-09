@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { AppRoutes } from "./routes";
 import { MovieContextProvider } from "./store/MovieContext";
-import { Reset } from 'styled-reset'
+import { Reset } from "styled-reset";
 
 const App = () => {
   return (
     <Wrapper>
       <MovieContextProvider>
-      <Reset />
+        <Reset />
         <AppRoutes />
       </MovieContextProvider>
     </Wrapper>
   );
-}
+};
 
 export default App;
 
@@ -25,6 +25,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   @media (max-width: 767px) {
-    padding: 0 16px;
+    padding: 0;
   }
 `;

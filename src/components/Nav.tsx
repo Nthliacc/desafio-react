@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import basket from "../assets/basket.png";
+import basket from "../assets/basket.svg";
 import { MovieContext } from "../store/MovieContext";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ export function Nav() {
       <CartBox>
         <p>Meu Carrinho</p>
         <span>
-          {`${totalQuantity} ${totalQuantity > 1 ? "itens" : "item"}`}
+          {`${totalQuantity} ${totalQuantity !== 1 ? "itens" : "item"}`}
         </span>
         <Link to="/cart">
           <img src={basket} alt="basket de compras" />
@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 10px;
+  padding: 24px 16px;
   width: 100%;
 
   a{
@@ -53,24 +53,28 @@ const CartBox = styled.div`
   grid-template-areas: "text img" "number img";
   column-gap: 8px;
   text-align: right;
-
-  p,
-  span {
+  p, span {
     font-weight: 600;
   }
   p {
+    height: 19px;
     grid-area: text;
     font-size: 14px;
-    line-height: 19px;
+    line-height: 19.07px;
   }
   span {
     grid-area: number;
     font-size: 12px;
-    line-height: 16px;
+    line-height: 16.34px;
     color: #999999;
   }
   a {
     grid-area: img;
+    img {
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+    }
   }
   @media (max-width: 767px) {
     grid-template-areas: "number img";
